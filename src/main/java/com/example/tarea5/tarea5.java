@@ -1,6 +1,5 @@
 package com.example.tarea5;
 
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,14 +12,12 @@ public class tarea5 {
     int ascii;
     int count;
     int max;
-    int[] result_arr = new int[26];
     String result;
 
     @RequestMapping("/")
     public String index(@RequestParam String[] content) {
         setString(content);
         return countChars();
-//        return setReturn();
     }
 
 
@@ -48,11 +45,9 @@ public class tarea5 {
                 }
                 ascii++;
             }
-            System.out.println(Character.toString((char) ascii) + " has " + count);
-            System.out.println(max_v);
             str = str.replaceAll(max_v, "");
             str = str.trim();
-            result = result + "<br>" + "* " + max_v + " = " + max + " ";
+            result = result + "<br>" + max_v + " : " + max + " ";
             if (max < 10) {
                 result = result + " ";
             }
